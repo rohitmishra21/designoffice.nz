@@ -2,7 +2,7 @@ import React from "react";
 
 const Road = () => {
   return (
-    <div className="relative bg-[#EDEDED]">
+    <div className="anim relative bg-[#EDEDED]">
       <div className=" w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
         <div className="border border-dotted z-20 border-black relative bg-[url('https://images.prismic.io/motionsickness/ZkxqsCol0Zci9T_E_KBA_Road_TwoPosterMockupcopy.jpg?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C1678%2C1678&w=800&h=2000&dpr=2&q=50')] bg-cover bg-center"></div>
         <div className="border border-dotted z-40 border-black relative "></div>

@@ -3,7 +3,7 @@ import React from 'react'
 const Furniture = () => {
   return (
   <>
-  <div className='relative bg-[#EDEDED]'>
+  <div className='anim relative bg-[#EDEDED]'>
      <div className="w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>

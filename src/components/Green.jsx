@@ -3,7 +3,7 @@ import React from 'react'
 const Green = () => {
   return (
    <>
-   <div className="relative bg-[#EDEDED]">
+   <div className="anim relative bg-[#EDEDED]">
       <div className=" w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
         <div className="border border-dotted z-20 border-black relative bg-[url('https://images.prismic.io/motionsickness/22787e5a-e65d-4aa4-8908-ec955b0e97da_Frank-Energy_Press_Webstie-Laptop.jpg?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C2636%2C2027&w=800&h=1538&dpr=2&q=50')] bg-cover bg-center"></div>
         <div className="border border-dotted z-40 border-black relative "></div>

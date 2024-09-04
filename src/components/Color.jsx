@@ -3,7 +3,7 @@ import React from 'react'
 const Color = () => {
   return (
 <>
-    <div className="relative bg-[#EDEDED]">
+    <div className="anim relative bg-[#EDEDED]">
       <div className=" w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
         <div className="border border-dotted z-20 border-black relative bg-[url('https://images.prismic.io/motionsickness/Zkahgiol0Zci9OkQ_Designoffice_Sorted_1.jpg?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C3840%2C2160&w=800&h=1125&dpr=2&q=50')] bg-cover bg-center"></div>
         <div className="border border-dotted z-40 border-black relative "></div>

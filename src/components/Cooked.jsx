@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Cooked = () => {
+ useEffect(() => {
+
+ }, [])
+ 
   return (
     <>
-    <div className='w-full h-screen relative bg-[#EDEDED] '>
+    <div className='anim w-full h-screen relative bg-[#EDEDED] '>
        <div className="w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
                 <div className="border border-dotted z-40 border-black relative"></div>
                 <div className="border border-dotted z-40 border-black flex flex-col justify-end relative">
