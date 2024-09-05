@@ -1,23 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
-import Third from "./Third";
+// import Third from "./Third";
+import gsap from "gsap";
 
 const Four = () => {
   const [num, setNum] = useState(0);
+  const [changer, setChanger] = useState(true);
 
   const show = () => {
-    setNum((prev) => 
-prev + 1
-     );
-    
+    setNum((prev) => prev + 1);
   };
-
+  function bgChanger() {
+    setChanger((p) => !p);
+ 
+  }
+  useEffect(() => {
+    if (changer === false) {
+      gsap.to(".circle", {
+        x: "130%",
+      });
+    } else {
+      gsap.to(".circle", {
+        x: 0,
+      });
+    }
+  
+    
+  }, [changer])
+  
   return (
     <>
       <div className="relative">
         {num === 0 && (
           <>
-            <div className=" bg-[#ededed] w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
+            <div className="  w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
               <div className="border border-dotted z-10 border-black relative "></div>
               <div className="border border-dotted z-10 border-black relative "></div>
               <div className="border border-dotted z-10 border-black relative "></div>
@@ -40,7 +56,17 @@ prev + 1
               <div className="border border-dotted z-10 border-black relative "></div>
             </div>
             <div className="w-full top-0 left-0  absolute  h-screen flex justify-center items-center  gap-7">
-              <div className="w-[80%] z-20 h-[70%] bg-[#e5d4ba] relative">
+              <div
+                className="toper w-[80%] z-20 h-[70%]  relative "
+                style={{
+                  background: changer
+                    ? "#E5D4BA"
+                    : "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpmGzcN-57sW1aQ-0dK8nuRPjpyTcrbS7q4RYxFHWU5ks5FnTXTVVlLw9M4LXmSFklcVI&usqp=CAU)",
+                  backgroundSize: "cover", // Image ko fit karta hai
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
                 <div className=" w-full h-full flex flex-col justify-center items-center gap-12">
                   <h1 className="text-[3vw] leading-none tracking-tight text-center px-28">
                     Designers and clients dont't always speak the same language.
@@ -57,8 +83,11 @@ prev + 1
 
                 <div className="absolute right-3 bottom-5 flex items-center gap-4">
                   <h1 className="text-xl capitalize">client mode</h1>
-                  <div className=" h-10 w-20 bg-white border flex items-center border-black rounded-full">
-                    <div className="h-8 w-8 bg-black  rounded-full "></div>
+                  <div
+                    className=" h-10 w-20 bg-white border flex items-center border-black  rounded-full"
+                    onClick={bgChanger}
+                  >
+                    <div className="circle h-8 w-8 bg-black  rounded-full "></div>
                   </div>
                 </div>
               </div>
@@ -68,13 +97,7 @@ prev + 1
 
         {num === 1 && (
           <>
-            <Slider show={show} />
-           
-          </>
-        )}
-        {num === 2 && (
-          <>
-            <Third />
+            <Slider />
           </>
         )}
       </div>

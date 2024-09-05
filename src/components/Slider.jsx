@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css/navigation";
 import "../swiper.css";
+import gsap from "gsap";
 
 const Slider = () => {
   const [currentslide, setCurrentSlide] = useState(0);
   const [showDiv, setShowDiv] = useState(null);
   const [back, setBack] = useState(true);
+  const [backgroundChanger, setBackgroungChanger] = useState(true);
 
   const divContent = [
     {
@@ -69,10 +71,26 @@ const Slider = () => {
     setBack(true);
   }
 
+  function bgmover() {
+    setBackgroungChanger((pr) => !pr);
+  }
+
+  useEffect(() => {
+    if (backgroundChanger === false) {
+      gsap.to(".smcircle", {
+        x: "130%",
+      });
+    } else {
+      gsap.to(".smcircle", {
+        x: 0,
+      });
+    }
+  }, [backgroundChanger]);
+
   return (
     <>
-      <div className="relative w-full h-screen">
-        <div className=" bg-[#ededed] w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
+      <div className="relative w-full h-screen ">
+        <div className="  w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
           <div className="border border-dotted z-10 border-black relative "></div>
           <div className="border border-dotted z-10 border-black relative "></div>
           <div className="border border-dotted z-10 border-black relative "></div>
@@ -94,86 +112,118 @@ const Slider = () => {
           <div className="border border-dotted z-10 border-black relative "></div>
           <div className="border border-dotted z-10 border-black relative "></div>
         </div>
-        <Swiper
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          loop={true}
-          onSlideChange={slideHendler}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className="mySwiper bg-[#e5d4ba] absolute top-[50%] z-20 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[80%] h-[70%] "
-          style={{
-            display: back ? "block" : "none",
-          }}
-        >
-          <div className="absolute inset-0   gap-12 pointer-events-none">
-            <h1 className="text-[2.8vw] leading-none capitalize px-5 py-5">
-              design <br />
-              translator
-            </h1>
-            <button
-              className="px-[80px] py-[15px] z-30 bg-[#b0fb90] text-xl border border-black font-medium pointer-events-auto absolute top-[70%] left-1/2 -translate-x-1/2"
-              onClick={show}
-            >
-              Translate
-            </button>
-            <div className="absolute right-3 bottom-5 flex items-center gap-4 pointer-events-auto">
-              <h1 className="text-xl capitalize">client mode</h1>
-              <div className="h-10 w-20 bg-white border flex items-center border-black rounded-full">
-                <div className="h-8 w-8 bg-black rounded-full"></div>
+        <div className="w-full h-screen absolute top-0 flex justify-center items-center z-20">
+          <Swiper
+            cssMode={true}
+            navigation={true}
+            pagination={true}
+            mousewheel={true}
+            keyboard={true}
+            loop={true}
+            onSlideChange={slideHendler}
+            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+            className="mySwiper h-[70%] w-[80%] "
+            style={{
+              display: back ? "block" : "none",
+              backgroundColor: backgroundChanger ? "#e5d4ba" : undefined, // Use backgroundColor for color
+              backgroundImage: !backgroundChanger
+                ?"url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpmGzcN-57sW1aQ-0dK8nuRPjpyTcrbS7q4RYxFHWU5ks5FnTXTVVlLw9M4LXmSFklcVI&usqp=CAU)"
+                : undefined,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="gap-12 pointer-events-none">
+              <h1 className="text-[2.8vw] leading-none capitalize px-5 py-5">
+                design <br />
+                translator
+              </h1>
+              <button
+                className="px-[80px] py-[15px] z-30 bg-[#b0fb90] text-xl border border-black font-medium pointer-events-auto absolute top-[70%] left-1/2 -translate-x-1/2"
+                onClick={show}
+              >
+                Translate
+              </button>
+              <div className="absolute right-3 bottom-5 flex items-center gap-4 pointer-events-auto">
+                <h1 className="text-xl capitalize">client mode</h1>
+                <div
+                  className="h-10 w-20 z-20 bg-white border flex items-center border-black rounded-full"
+                  onClick={bgmover}
+                >
+                  <div className="smcircle relative  h-8 w-8 bg-black rounded-full"></div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              What if we design sprint face - to - face.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              Can you resend the link.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3.5vw]  leading-none tracking-tight text-center px-28">
-              We need to run this by the team.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              It's almost there.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              There is some great thinking here.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              Hey just wondering if you got my last email.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              The illustrated character's face looks a little smug .
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              Thank you in advance.
-            </h1>
-          </SwiperSlide>
-          <SwiperSlide className="flex  justify-center items-center">
-            <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
-              we need to a younger <br /> audience without alineating our <br />{" "}
-              existing customer base.
-            </h1>
-          </SwiperSlide>
-        </Swiper>
+            <SwiperSlide className="">
+              <div className="h-full flex justify-center items-center">
+                <h1 className="text-[3vw]  leading-none tracking-tight ">
+                  What if we design sprint face - to - face.
+                </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex justify-center items-center">
+              <div className="h-full flex justify-center items-center">
+                <h1 className="text-[3vw] leading-none tracking-tight text-center px-28">
+                  Can you resend the link.
+                </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3.5vw]  leading-none tracking-tight text-center px-28">
+                We need to run this by the team.
+              </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                It's almost there.
+              </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                There is some great thinking here.
+              </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                Hey just wondering if you got my last email.
+              </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                The il
+                lustrated character's face looks a little smug .
+              </h1>
+              </div>
+
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                Thank you in advance.
+              </h1>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="flex  justify-center items-center">
+            <div className="h-full flex justify-center items-center">
+              <h1 className="text-[3vw]  leading-none tracking-tight text-center px-28">
+                we need to a younger <br /> audience without alineating our{" "}
+                <br /> existing customer base.
+              </h1>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
 
       {showDiv === 0 && (
@@ -214,7 +264,10 @@ const Slider = () => {
 
                 <div className="absolute right-3 bottom-5 flex items-center gap-4">
                   <h1 className="text-xl capitalize">client mode</h1>
-                  <div className=" h-10 w-20 bg-white border flex items-center border-black rounded-full">
+                  <div
+                    className=" h-10 w-20 bg-white border flex items-center  border-black rounded-full"
+                    onClick={bgmover}
+                  >
                     <div className="h-8 w-8 bg-black  rounded-full "></div>
                   </div>
                 </div>

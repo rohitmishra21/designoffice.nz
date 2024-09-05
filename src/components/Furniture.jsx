@@ -5,30 +5,30 @@ const Furniture = () => {
   <>
   <div className='anim relative bg-[#EDEDED]'>
      <div className="w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
                 <div className="border border-dotted z-20 border-black relative bg-[url('https://images.prismic.io/motionsickness/ZkQ7VCol0Zci9IyT_DesignOffice_BigSave_Image8.jpg?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C1955%2C1894&w=800&h=1938&dpr=2&q=50')] bg-cover bg-center"></div>
 
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative ">
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative ">
                     <h1 className='text-[3.7vw] capitalize font-bold leading-none tracking-tighter'>big save furniture</h1>
                 </div>
-                <div className="border border-dotted z-40 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
 
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative ">
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative ">
                     <h1 className='text-xl leading-none'>Big save has been selling beds since before you were born, but the time had come for a big glow up. A simplified logo, refined colour palette for visual consistency underpinned a new modern look and feel for one of the nations most storied brands.</h1>
                 </div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative bg-[url('https://images.prismic.io/motionsickness/ZkxlGyol0Zci9T7A_BSFrotatingbeans.gif?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C600%2C461&w=800&h=1537&dpr=2&q=50')] bg-cover bg-center " ></div>
-                <div className="border border-dotted z-40 border-black relative flex flex-col justify-end ">
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative "></div>
+                <div className="border border-dotted z-30 border-black relative bg-[url('https://images.prismic.io/motionsickness/ZkxlGyol0Zci9T7A_BSFrotatingbeans.gif?ixlib=js-3.3.0&auto=format%2C%20compress&rect=0%2C0%2C600%2C461&w=800&h=1537&dpr=2&q=50')] bg-cover bg-center " ></div>
+                <div className="border border-dotted z-30 border-black relative flex flex-col justify-end ">
                     <h1 className='text-xl capitalize leading-none'>brand strategy</h1>
                     <h1 className='text-xl capitalize leading-none'>brand identity refresh</h1>
                     <h1 className='text-xl capitalize leading-none'>in store experience</h1>

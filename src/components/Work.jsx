@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cooked from "./Cooked";
 import Furniture from "./Furniture";
 import Road from "./Road";
@@ -10,8 +11,12 @@ import Ora from "./Ora";
 import Phone from "./Phone";
 import Milk from "./Milk";
 import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Work = () => {
   const [count, setCount] = useState(0);
+
   const changer = () => {
     setCount((prev) => {
       if (prev === 17) {
@@ -28,33 +33,48 @@ const Work = () => {
     });
   }, [count]);
 
+  useEffect(() => {
+    gsap.to(".txt", {
+      width: "100%",
+      x: "0",
+      ease: 0,
+      scrollTrigger: {
+        trigger: ".name",
+
+        start: "top 70%",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+    gsap.to(".text", {
+      width: "100%",
+      x: "0",
+      ease: 0,
+      scrollTrigger: {
+        trigger: ".name",
+
+        start: "top 30%",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }, []);
+
   return (
     <>
-      <div onClick={changer} className=" w-full h-screen ">
+      <div onClick={changer} className="name w-full h-screen relative ">
         {count === 0 && (
           <>
-            <div className="w-full h-screen bg-[#D6D6D6]">
-              <div className="w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
-                <div className="border border-dotted z-40 border-black relative ">
-                  <h1 className="text-[18vw] tracking-tighter leading-none big">
-                    Click
-                  </h1>
-                </div>
+            <div className=" w-full h-screen bg-[#D6D6D6]">
+              <div className=" w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
                 <div className="border border-dotted z-40 border-black relative "></div>
-                <div className="border border-dotted z-40 border-black relative">
-                  <h1 className="text-[18vw] tracking-tighter leading-none big pl-24">
-                    for
-                  </h1>
-                </div>
+                <div className="border border-dotted z-40 border-black relative "></div>
+                <div className="border border-dotted z-40 border-black relative"></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative flex justify-between "></div>
 
-                <div className="border border-dotted z-40 border-black relative ">
-                  <h1 className="text-[18vw] tracking-tighter leading-none big">
-                    work
-                  </h1>
-                </div>
+                <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
@@ -67,6 +87,18 @@ const Work = () => {
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
                 <div className="border border-dotted z-40 border-black relative "></div>
+              </div>
+            </div>
+            <div className="absolute w-full h-screen top-0 whitespace-nowrap    ">
+              <div>
+                <h1 className="txt w-0 overflow-hidden text-[18vw] tracking-tighter   leading-none big ">
+                  Click for
+                </h1>
+              </div>
+              <div>
+                <h1 className="text w-0  overflow-hidden text-[18vw] tracking-tighter    leading-none big ">
+                  work
+                </h1>
               </div>
             </div>
           </>

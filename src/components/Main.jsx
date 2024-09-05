@@ -7,6 +7,8 @@ const Main = () => {
   const [ydirection, setYdirection] = useState(0);
 
   useEffect(() => {
+  
+
     const interval = setInterval(() => {
       if (ydirection === 0) {
         gsap.to(".imggg", {
@@ -50,18 +52,26 @@ const Main = () => {
     return () => clearInterval(interval);
   }, [ydirection]);
 
+  useEffect(() => {
+    gsap.to(".animate",{
+      height:"100%",
+      duration:2
+    })
+  }, [])
+  
+
   return (
     <>
       <div>
-        <div className="relative overflow-hidden w-full h-screen grid grid-cols-6 grid-rows-3 gap-3 px-3 py-3">
+        <div className="relative hidden overflow-hidden w-full h-screen xl:grid grid-cols-3 grid-rows-2 xl:grid-cols-6 xl:grid-rows-3 xl:gap-3 xl:px-3 xl:py-3">
           <div className="border border-dotted z-30 border-black relative ">
-            <h1 className="font-extrabold text-3xl tracking-tighter uppercase fixed">
+            <h1 className="font-extrabold  xl:text-3xl tracking-tighter uppercase fixed">
               motion sickness
             </h1>
           </div>
           <div className="border border-dotted z-30 border-black relative "></div>
           <div className="border border-dotted z-30 border-black relative ">
-            <h1 className="font-extrabold text-3xl tracking-tighter uppercase fixed">
+            <h1 className="font-extrabold xl:text-3xl tracking-tighter uppercase fixed">
               design office
             </h1>
           </div>
@@ -75,7 +85,7 @@ const Main = () => {
           </div>
 
           <div className="border border-dotted z-30 border-black relative ">
-            <p className="text-lg font-semibold z-10 relative tracking-tighter">
+            <p className="animate xl:block hidden  h-0 overflow-hidden text-lg font-semibold z-10 relative tracking-tighter">
               Welcome to the Motion Sickness Design Office, an artificial space
               created within the physical plane of our existing, everyday
               office. The purpose of this space is to help us delineate when
@@ -84,7 +94,7 @@ const Main = () => {
             </p>
           </div>
           <div className="border border-dotted z-30 border-black relative ">
-            <p className="text-lg font-semibold z-10 relative tracking-tighter">
+            <p className="animate xl:block hidden h-0 overflow-hidden text-lg font-semibold z-10 relative tracking-tighter">
               So, while the pictured office chairs with their questionable
               stains will be noticeably absent in actuality, you will still find
               a whole new approach. Here, rather than asking brands what they
@@ -92,7 +102,7 @@ const Main = () => {
             </p>
           </div>
           <div className="border border-dotted z-30 border-black relative ">
-            <p className="text-lg font-semibold z-10 relative tracking-tighter">
+            <p className="text-lg animate xl:block hidden h-0 overflow-hidden font-semibold z-10 relative tracking-tighter">
               Some would say we give brands a Retinol enriched facial. And,
               while we make them look good, the work we do is much deeper. We
               nurse the identity wounds brands carry in a psycho-spiritual
@@ -106,21 +116,21 @@ const Main = () => {
 
           <div className="border border-dotted z-30 border-black relative "></div>
           <div className="border border-dotted z-30 border-black relative ">
-            <p className="text-lg font-semibold z-10 relative tracking-tighter">
+            <p className="text-lg animate xl:block hidden  h-0 overflow-hidden font-semibold z-10 relative tracking-tighter">
               An advertising agency and a design agency living in the same
               house, but sleeping in separate beds - a marriage of unique
               strength, with the emotional space to be one's own self.
             </p>
           </div>
           <div className="border border-dotted z-30 border-black relative ">
-            <p className="text-lg font-semibold z-10 relative tracking-tighter pt-16">
+            <p className="text-lg animate xl:block hidden h-0 overflow-hidden font-semibold z-10 relative tracking-tighter pt-16">
               Motion Sickness Design Office. An artificial space for real
               design.
             </p>
           </div>
-          <div className="border border-dotted z-30 border-black relative "></div>
-          <div className="border border-dotted z-30 border-black relative "></div>
-          <div className="border border-dotted z-30 border-black relative "></div>
+          <div className="border border-dotted z-30  border-black relative "></div>
+          <div className="border border-dotted z-30  border-black relative "></div>
+          <div className="border border-dotted z-30  border-black relative "></div>
         </div>
         <div className="img-contaner">
           {ydirection === 0 && (
